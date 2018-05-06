@@ -106,3 +106,48 @@ h2 {
     content: '';
     margin-right: 3px;
 }
+
+#add-task {
+    width: 500px;
+    height: 35px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    display: flex;
+    border: 1px dotted #123456;
+}
+
+input[type="text"], textarea {
+    width: 430px;
+    background: #121920;
+    border: 1px solid #293847;
+    color: #e4cfcf;
+    box-sizing: border-box;
+    padding: 1px 10px;
+    font-size: 20px;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    color: #f5e6e6;
+    outline: none!important;
+    border: 1px solid #506c86;
+}
+
+#add-task-input,
+#add-task-text {
+    float: left;
+}
+
+#add-task-text{
+    text-align: center;
+    width: 70px;
+    border: 1px solid #293847;
+    box-sizing: border-box;
+}
+
+
+#add-task-text:hover {
+    cursor: pointer;
+    background: #222e3a;
+}
