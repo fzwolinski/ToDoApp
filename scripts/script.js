@@ -1,7 +1,5 @@
 if (typeof(Storage) !== "undefined") {
     // Code for localStorage/sessionStorage.
-    //console.log('LocalStorage Działa :D');
-
 
     var tekst = [
         {
