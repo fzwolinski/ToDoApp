@@ -151,3 +151,11 @@ textarea:focus {
     cursor: pointer;
     background: #222e3a;
 }
+
+
+
+
+footer {
+    padding-top: 20px;
+    font-size: 15px;
+}
