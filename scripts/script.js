@@ -2,8 +2,8 @@ if (typeof(Storage) !== "undefined") {
 
     var AddTaskButton = document.querySelector("#add-task-text");
 
-    var tasks = JSON.parse(localStorage.getItem('ToDoApp'));
-
+	var tasks = (JSON.parse(localStorage.getItem('ToDoApp')) != null) ? JSON.parse(localStorage.getItem('ToDoApp')) : [];
+	
     AddTaskButton.addEventListener('click', function() {
         addTask();
     });
