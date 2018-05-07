@@ -1,4 +1,8 @@
 if (typeof(Storage) !== "undefined") {
+
+    
+
+
     // Code for localStorage/sessionStorage.
 
     var tekst = [
