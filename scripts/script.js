@@ -74,6 +74,9 @@ if (typeof(Storage) !== "undefined") {
         }
         // TUTAJ ZROBIĆ APPENDY CZYLI ZŁOŻYĆ STRUKTURĘ TASKA Z DIVÓW
         // DODAWANIE TASKA JUŻ DZIAŁA
+		// var div = document.createElement("div");
+        // div.innerHTML = "Some text";
+		// document.body.insertBefore(newDiv, div);
 
     }();
 
