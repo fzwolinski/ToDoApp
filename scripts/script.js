@@ -3,7 +3,7 @@ if (typeof(Storage) !== "undefined") {
     var AddTaskButton = document.querySelector("#add-task-text");
 
 	var tasks = (JSON.parse(localStorage.getItem('ToDoApp')) != null) ? JSON.parse(localStorage.getItem('ToDoApp')) : [];
-	
+    
     AddTaskButton.addEventListener('click', function() {
         addTask();
     });
@@ -14,21 +14,19 @@ if (typeof(Storage) !== "undefined") {
         taskContent = taskContent.trim();
         
         if(taskContent != 0 ){
-            //console.log(taskContent);
-
             var task = prepareTaskForLocalstorage(getDateAndTime(), taskContent, false);
 
             tasks.push(task);
             saveTaskToLocalStorage(tasks);
-            
-            //console.log(tasks);
+
+            listTasksFromLocalStorage(tasks);
         }
     };
 
     var getDateAndTime = function() {
         var d = new Date();
-        var year = d.getFullYear(); // 2018
-        var month = d.getMonth(); // 4
+        var year = d.getFullYear();
+        var month = d.getMonth();
         month += month;
         
         if (month < 10) {
@@ -64,73 +62,50 @@ if (typeof(Storage) !== "undefined") {
         localStorage.setItem("ToDoApp", JSON.stringify(task));
     };
 
-    var prepareTaskForWebPage = function() {
-        for(var i = 0; i < tasks.length +1; i++) {
-            var li = document.createElement('li');
-            var ul = document.querySelector('#list-of-todos');
-            var div_check_box = document.createElement('div');
-            div_check_box.className = 'check-box';
-            var input_checkbox = document.createElement('input');
-            input_checkbox.setAttribute("type", "checkBox");
-            input_checkbox.id = 'checkBox';
-            var label_for_checkbox = document.createElement('label');
-            label_for_checkbox.setAttribute('for', 'checkBox');
-            div_check_box.appendChild(input_checkbox);
-            div_check_box.appendChild(label_for_checkbox);
-            var div_task_text = document.createElement('div');
-            div_task_text.className = 'task-text';
-            var div_edit_delete_date_hour = document.createElement('div');
-            div_edit_delete_date_hour.className = 'edit-delete-date-hour';
-            var span_edit = document.createElement('span');
-            span_edit.className = 'edit';
-            span_edit.innerHTML = 'Edit ';
-            var span_delete = document.createElement('span');
-            span_delete.className = 'delete';
-            span_delete.innerHTML = 'Delete';
-            var span_date_hour = document.createElement('span');
-            span_date_hour.className = 'date-hour';
-            div_edit_delete_date_hour.appendChild(span_edit);
-            div_edit_delete_date_hour.appendChild(span_delete);
-            div_edit_delete_date_hour.appendChild(span_date_hour);
-            div_task_text.innerHTML = tasks[i].content;
-            span_date_hour.innerHTML = tasks[i].create_date;
-            li.appendChild(div_check_box);
-            li.appendChild(div_task_text);
-            li.appendChild(div_edit_delete_date_hour);    
-            ul.prepend(li);
+    var listTasksFromLocalStorage = function(ta) {
+        document.getElementById('list-of-todos').innerHTML = "";
+        for (var i = 0; i < ta.length; i++) {
+            if (ta.checked != false) {
+                var li = document.createElement('li');
+                var ul = document.querySelector('#list-of-todos');
+                var div_check_box = document.createElement('div');
+                div_check_box.className = 'check-box';
+                var input_checkbox = document.createElement('input');
+                input_checkbox.setAttribute("type", "checkBox");
+                input_checkbox.id = 'checkBox';
+                var label_for_checkbox = document.createElement('label');
+                label_for_checkbox.setAttribute('for', 'checkBox');
+                div_check_box.appendChild(input_checkbox);
+                div_check_box.appendChild(label_for_checkbox);
+                var div_task_text = document.createElement('div');
+                div_task_text.className = 'task-text';
+                var div_edit_delete_date_hour = document.createElement('div');
+                div_edit_delete_date_hour.className = 'edit-delete-date-hour';
+                var span_edit = document.createElement('span');
+                span_edit.className = 'edit';
+                span_edit.innerHTML = 'Edit ';
+                var span_delete = document.createElement('span');
+                span_delete.className = 'delete';
+                span_delete.innerHTML = 'Delete';
+                var span_date_hour = document.createElement('span');
+                span_date_hour.className = 'date-hour';
+                div_edit_delete_date_hour.appendChild(span_edit);
+                div_edit_delete_date_hour.appendChild(span_delete);
+                div_edit_delete_date_hour.appendChild(span_date_hour);
+                div_task_text.innerHTML = ta[i].content;
+                span_date_hour.innerHTML = ta[i].create_date;
+                li.appendChild(div_check_box);
+                li.appendChild(div_task_text);
+                li.appendChild(div_edit_delete_date_hour);    
+                ul.prepend(li);
+            }
         }
-    }();
-
-   
-
-    // Code for localStorage/sessionStorage.
-    var tekst = [
-        {
-            "create_date": "05-05-2018",
-            "content": "John",
-            "checked": true
-        }
-    ];
-    
-
-    var tekst2 = {
-        "create_date": "11-01-2018",
-        "content": "Adam",
-        "checked": false
     };
-
+    listTasksFromLocalStorage(tasks);
     
-    //localStorage.setItem("ToDoApp", JSON.stringify(tekst));
-    //console.log(JSON.parse(tekst));
-
-    
-//console.log(JSON.parse(localStorage.getItem('ToDoApp')));
-
-
-// JAK dodajemy do localstorage to trzeba zmienić na JSON.stringidy(teskt)
-// JAK pobieramy localsotrage to parsujemy to na JSON.parse(tekst)
-
 } else {
     // Sorry! No Web Storage support..
     confirm.log('Niestety LocalStorage nie działa na twoim komputerze');
 }
+
+// DODAĆ USUWANIE, EDYTOWANIE TASKÓW

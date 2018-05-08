@@ -169,9 +169,12 @@ textarea:focus {
 
 #add-task-text{
     text-align: center;
+    font-size: 22px;
     width: 70px;
     border: 1px solid #293847;
     box-sizing: border-box;
+    height: 33px;
+    line-height: 33px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
