@@ -1,12 +1,13 @@
 if (typeof(Storage) !== "undefined") {
 
     var AddTaskButton = document.querySelector("#add-task-text");
-
+    
 	var tasks = (JSON.parse(localStorage.getItem('ToDoApp')) != null) ? JSON.parse(localStorage.getItem('ToDoApp')) : [];
     
     AddTaskButton.addEventListener('click', () => {
         addTask();
     });
+   
 
     var addTask = () => {
         var taskContent = document.querySelector('#add-task-input').value;
@@ -86,6 +87,7 @@ if (typeof(Storage) !== "undefined") {
         }
     };
     listTasksFromLocalStorage(tasks);
+    $('.delete').click(function() {console.log(this);});
     
 } else {
     // Sorry! No Web Storage support..

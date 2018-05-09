@@ -99,9 +99,9 @@ li:last-child {
     float: left;
     margin-left: 10px;
     max-width: 450px;
-    font-size: 28px;
+    font-size: 25px;
     height: 20px;
-    line-height: 21px;
+    margin-top: -6px;
 }
 
 .edit-delete-date-hour {
