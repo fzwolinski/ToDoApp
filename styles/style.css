@@ -99,15 +99,15 @@ li:last-child {
     float: left;
     margin-left: 10px;
     max-width: 450px;
-    font-size: 25px;
+    font-size: 28px;
     height: 20px;
-    line-height: 20px;
+    line-height: 21px;
 }
 
 .edit-delete-date-hour {
     clear: both;
     font-size: 13px;
-    padding: 4px 0;
+    padding-top: 7px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
