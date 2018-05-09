@@ -4,11 +4,11 @@ if (typeof(Storage) !== "undefined") {
 
 	var tasks = (JSON.parse(localStorage.getItem('ToDoApp')) != null) ? JSON.parse(localStorage.getItem('ToDoApp')) : [];
     
-    AddTaskButton.addEventListener('click', function() {
+    AddTaskButton.addEventListener('click', () => {
         addTask();
     });
 
-    var addTask = function() {
+    var addTask = () => {
         var taskContent = document.querySelector('#add-task-input').value;
         taskContent = taskContent.replace(/^\s+|\s+$/g, '');
         taskContent = taskContent.trim();
@@ -23,7 +23,7 @@ if (typeof(Storage) !== "undefined") {
         }
     };
 
-    var getDateAndTime = function() {
+    var getDateAndTime = () => {
         var d = new Date();
         var year = d.getFullYear();
         var month = d.getMonth();
@@ -50,7 +50,7 @@ if (typeof(Storage) !== "undefined") {
         return fullDateAndTime;
     };
 
-    var prepareTaskForLocalstorage = function(create_date, content, isChecked) {
+    var prepareTaskForLocalstorage = (create_date, content, isChecked) => {
         return {
             "create_date": create_date,
             "content": content,
@@ -58,11 +58,11 @@ if (typeof(Storage) !== "undefined") {
         };
     };
 
-    var saveTaskToLocalStorage = function(task) {
+    var saveTaskToLocalStorage = (task) => {
         localStorage.setItem("ToDoApp", JSON.stringify(task));
     };
 
-    var listTasksFromLocalStorage = function(ta) {
+    var listTasksFromLocalStorage = (ta) => {
         document.getElementById('list-of-todos').innerHTML = "";
         for (var i = 0; i < ta.length; i++) {
             if (ta.checked != false) {
