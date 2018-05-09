@@ -66,37 +66,21 @@ if (typeof(Storage) !== "undefined") {
         document.getElementById('list-of-todos').innerHTML = "";
         for (var i = 0; i < ta.length; i++) {
             if (ta.checked != false) {
-                var li = document.createElement('li');
                 var ul = document.querySelector('#list-of-todos');
-                var div_check_box = document.createElement('div');
-                div_check_box.className = 'check-box';
-                var input_checkbox = document.createElement('input');
-                input_checkbox.setAttribute("type", "checkBox");
-                input_checkbox.id = 'checkBox';
-                var label_for_checkbox = document.createElement('label');
-                label_for_checkbox.setAttribute('for', 'checkBox');
-                div_check_box.appendChild(input_checkbox);
-                div_check_box.appendChild(label_for_checkbox);
-                var div_task_text = document.createElement('div');
-                div_task_text.className = 'task-text';
-                var div_edit_delete_date_hour = document.createElement('div');
-                div_edit_delete_date_hour.className = 'edit-delete-date-hour';
-                var span_edit = document.createElement('span');
-                span_edit.className = 'edit';
-                span_edit.innerHTML = 'Edit ';
-                var span_delete = document.createElement('span');
-                span_delete.className = 'delete';
-                span_delete.innerHTML = 'Delete';
-                var span_date_hour = document.createElement('span');
-                span_date_hour.className = 'date-hour';
-                div_edit_delete_date_hour.appendChild(span_edit);
-                div_edit_delete_date_hour.appendChild(span_delete);
-                div_edit_delete_date_hour.appendChild(span_date_hour);
-                div_task_text.innerHTML = ta[i].content;
-                span_date_hour.innerHTML = ta[i].create_date;
-                li.appendChild(div_check_box);
-                li.appendChild(div_task_text);
-                li.appendChild(div_edit_delete_date_hour);    
+                var li = document.createElement('li');
+                var div_structure = `
+                    <div class="check-box">
+                        <input id="checkBox" type="checkbox">
+                        <label for="checkBox"></label>
+                    </div>
+                    <div class="task-text">` + ta[i].content + `</div>
+                    <div class="edit-delete-date-hour">
+                        <span class="edit">Edit</span>
+                        <span class="delete">Delete</span>
+                        <span class="date-hour">` + ta[i].create_date + `</span>
+                    </div>
+                    `;
+                li.innerHTML = div_structure;
                 ul.prepend(li);
             }
         }
