@@ -15,7 +15,7 @@ if (typeof(Storage) !== "undefined") {
         taskContent = taskContent.trim();
         
         if(taskContent != 0 ){
-            var task = prepareTaskForLocalstorage(getDateAndTime(), taskContent, false);
+            var task = prepareTaskForLocalstorage(getDateAndTime(), taskContent);
 
             tasks.push(task);
             saveTaskToLocalStorage(tasks);
@@ -51,11 +51,10 @@ if (typeof(Storage) !== "undefined") {
         return fullDateAndTime;
     };
 
-    var prepareTaskForLocalstorage = (create_date, content, isChecked) => {
+    var prepareTaskForLocalstorage = (create_date, content) => {
         return {
             "create_date": create_date,
-            "content": content,
-            "checked": isChecked
+            "content": content
         };
     };
 
@@ -66,24 +65,22 @@ if (typeof(Storage) !== "undefined") {
     var listTasksFromLocalStorage = (ta) => {
         document.getElementById('list-of-todos').innerHTML = "";
         for (var i = 0; i < ta.length; i++) {
-            if (ta.checked != false) {
-                var ul = document.querySelector('#list-of-todos');
-                var li = document.createElement('li');
-                var div_structure = `
-                    <div class="check-box">
-                        <input id="checkBox" type="checkbox">
-                        <label for="checkBox"></label>
-                    </div>
-                    <div class="task-text">` + ta[i].content + `</div>
-                    <div class="edit-delete-date-hour">
-                        <span class="edit">Edit</span>
-                        <span class="delete">Delete</span>
-                        <span class="date-hour">` + ta[i].create_date + `</span>
-                    </div>
-                    `;
-                li.innerHTML = div_structure;
-                ul.prepend(li);
-            }
+            var ul = document.querySelector('#list-of-todos');
+            var li = document.createElement('li');
+            var div_structure = `
+                <div class="check-box">
+                    <input id="checkBox" type="checkbox">
+                    <label for="checkBox"></label>
+                </div>
+                <div class="task-text">` + ta[i].content + `</div>
+                <div class="edit-delete-date-hour">
+                    <span class="edit">Edit</span>
+                    <span class="delete">Delete</span>
+                    <span class="date-hour">` + ta[i].create_date + `</span>
+                </div>
+                `;
+            li.innerHTML = div_structure;
+            ul.prepend(li);
         }
     };
     listTasksFromLocalStorage(tasks);
