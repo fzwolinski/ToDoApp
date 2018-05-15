@@ -1,14 +1,23 @@
 if (typeof(Storage) !== "undefined") {
 
     var AddTaskButton = document.querySelector("#add-task-text");
-    
+    var input = document.querySelector("#add-task-input");
 	var tasks = (JSON.parse(localStorage.getItem('ToDoApp')) != null) ? JSON.parse(localStorage.getItem('ToDoApp')) : [];
     
     AddTaskButton.addEventListener('click', () => {
         addTask();
     });
    
-   
+
+    input.addEventListener('focus', () => {
+        input.addEventListener('keydown', (key) => {
+            if(key.keyCode === 13) {
+                addTask();
+            }
+               
+        });
+        
+    })
 
     var addTask = () => {
         var taskContent = document.querySelector('#add-task-input').value;
@@ -16,7 +25,7 @@ if (typeof(Storage) !== "undefined") {
         taskContent = taskContent.trim();
         
         if(taskContent != 0 ){
-            var task = prepareTaskForLocalstorage(getDateAndTime(), taskContent);
+            var task = prepareTaskForLocalstorage(getDateAndTime(), taskContent, false);
 
             tasks.push(task);
             saveTaskToLocalStorage(tasks);
@@ -52,10 +61,11 @@ if (typeof(Storage) !== "undefined") {
         return fullDateAndTime;
     };
 
-    var prepareTaskForLocalstorage = (create_date, content) => {
+    var prepareTaskForLocalstorage = (create_date, content, ifChecked) => {
         return {
             "create_date": create_date,
-            "content": content
+            "content": content,
+            "checked": ifChecked
         };
     };
 
@@ -65,23 +75,25 @@ if (typeof(Storage) !== "undefined") {
 
     var listTasksFromLocalStorage = (ta) => {
         document.getElementById('list-of-todos').innerHTML = "";
-        for (var i = 0; i < ta.length; i++) {
-            var ul = document.querySelector('#list-of-todos');
-            var li = document.createElement('li');
-            var div_structure = `
-                <div class="check-box">
-                    <input id="checkBox" type="checkbox">
-                    <label for="checkBox"></label>
-                </div>
-                <div class="task-text">` + ta[i].content + `</div>
-                <div class="edit-delete-date-hour">
-                    <span class="edit">Edit</span>
-                    <span class="delete">Delete</span>
-                    <span class="date-hour">` + ta[i].create_date + `</span>
-                </div>
-                `;
-            li.innerHTML = div_structure;
-            ul.prepend(li);
+        if(!ta.checked){
+            for (var i = 0; i < ta.length; i++) {
+                var ul = document.querySelector('#list-of-todos');
+                var li = document.createElement('li');
+                var div_structure = `
+                    <div class="check-box">
+                        <input id="checkBox" type="checkbox">
+                        <label for="checkBox"></label>
+                    </div>
+                    <div class="task-text">` + ta[i].content + `</div>
+                    <div class="edit-delete-date-hour">
+                        <span class="edit">Edit</span>
+                        <span class="delete">Delete</span>
+                        <span class="date-hour">` + ta[i].create_date + `</span>
+                    </div>
+                    `;
+                li.innerHTML = div_structure;
+                ul.prepend(li);
+            }
         }
     };
     listTasksFromLocalStorage(tasks);
