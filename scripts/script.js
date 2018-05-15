@@ -8,6 +8,7 @@ if (typeof(Storage) !== "undefined") {
         addTask();
     });
    
+   
 
     var addTask = () => {
         var taskContent = document.querySelector('#add-task-input').value;
@@ -84,7 +85,20 @@ if (typeof(Storage) !== "undefined") {
         }
     };
     listTasksFromLocalStorage(tasks);
-    $('.delete').click(function() {console.log(this);});
+
+    $(document).on('click', '.delete', function(){
+        deleteTask(this);
+    });
+
+    var deleteTask = (t) => {
+        var clickedElement = t.parentNode.parentNode;
+        var taskContent = clickedElement.getElementsByClassName('task-text')[0].innerHTML;
+        var obj = tasks.find(o => o.content === taskContent);
+        tasks.splice(tasks.indexOf(obj), 1);
+        saveTaskToLocalStorage(tasks);
+        listTasksFromLocalStorage(tasks);
+    };
+  
     
 } else {
     // Sorry! No Web Storage support..
