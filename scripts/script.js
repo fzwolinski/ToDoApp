@@ -87,7 +87,7 @@ if (typeof(Storage) !== "undefined") {
                         <div class="edit-delete-date-hour">
                             <span class="edit">Edit</span>
                             <span class="delete">Delete</span>
-                            <span class="date-hour">` + ta[i].create_date + `</span>
+                            <span class="date-hour" title="The date and time the task was added">` + ta[i].create_date + `</span>
                         </div>
                         `;
                     li.innerHTML = div_structure;
@@ -98,9 +98,10 @@ if (typeof(Storage) !== "undefined") {
                     var div_structure = `
                         <div class="task-text">` + ta[i].content + `</div>
                         <div class="edit-delete-date-hour">
+                            <span class="moveToToDo">To Do</span>
                             <span class="delete">Delete</span>
-                            <span class="date-hour">` + ta[i].create_date + `</span>
-                            <span class="date-hour date-hour-completion">` + ta[i].completion_date + `</span>
+                            <span class="date-hour" title="The date and time the task was added">` + ta[i].create_date + `</span>
+                            <span class="date-hour date-hour-completion" title="The date and time when the task was completed">` + ta[i].completion_date + `</span>
                         </div>
                         `;
                     li.innerHTML = div_structure;
@@ -109,7 +110,6 @@ if (typeof(Storage) !== "undefined") {
             }        
     };
     listTasksFromLocalStorage(tasks);
-
 
     $(document).on('click', '.check-box label', function(){
         makeTaskDone(this);
@@ -120,6 +120,19 @@ if (typeof(Storage) !== "undefined") {
         var obj = tasks.find(o => o.content === doneTaskContent);
         obj.checked = true;
         obj.completion_date = getDateAndTime();
+        saveTaskToLocalStorage(tasks);
+        listTasksFromLocalStorage(tasks);
+    };
+
+    $(document).on('click', '.moveToToDo', function() {
+        moveTaskToToDoList(this);
+    });
+
+    var moveTaskToToDoList = (t) => {
+        var clickedElement = t.parentNode.parentNode;
+        var taskContent = clickedElement.getElementsByClassName('task-text')[0].innerHTML;
+        var obj = tasks.find(o => o.content === taskContent);
+        obj.checked = false;
         saveTaskToLocalStorage(tasks);
         listTasksFromLocalStorage(tasks);
     };
