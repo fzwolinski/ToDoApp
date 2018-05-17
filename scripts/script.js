@@ -8,15 +8,12 @@ if (typeof(Storage) !== "undefined") {
         addTask();
     });
    
-
     input.addEventListener('focus', () => {
         input.addEventListener('keydown', (key) => {
             if(key.keyCode === 13) {
                 addTask();
             }
-               
         });
-        
     })
 
     var addTask = () => {
@@ -110,6 +107,39 @@ if (typeof(Storage) !== "undefined") {
         saveTaskToLocalStorage(tasks);
         listTasksFromLocalStorage(tasks);
     };
+
+    $(document).on('click', '.edit', function(){
+        editTask(this);
+    });
+
+    var editTask = (t) => {
+        var clickedElement = t.parentNode.parentNode;
+        var taskElement = clickedElement.getElementsByClassName('task-text')[0];
+        var taskContent = clickedElement.getElementsByClassName('task-text')[0].innerHTML;
+        taskElement.setAttribute("contenteditable", "true");
+        taskElement.focus();
+        var obj = tasks.find(o => o.content === taskContent);
+        
+        taskElement.addEventListener('focusout', () => {
+            taskElement.setAttribute("contenteditable", "false");
+            var taskNewContent = clickedElement.getElementsByClassName('task-text')[0].innerHTML;
+            obj.content = taskNewContent;
+            saveTaskToLocalStorage(tasks);
+            listTasksFromLocalStorage(tasks);
+        });
+
+        taskElement.addEventListener('keydown', (key) => {
+            if(key.keyCode === 13) {
+                taskElement.setAttribute("contenteditable", "false");
+                var taskNewContent = clickedElement.getElementsByClassName('task-text')[0].innerHTML;
+                obj.content = taskNewContent;
+                saveTaskToLocalStorage(tasks);
+                listTasksFromLocalStorage(tasks);
+            }
+        });
+    };
+
+
   
     
 } else {
@@ -117,4 +147,5 @@ if (typeof(Storage) !== "undefined") {
     confirm.log('Niestety LocalStorage nie działa na twoim komputerze');
 }
 
-// DODAĆ USUWANIE, EDYTOWANIE TASKÓW
+
+// przy dodawaniu czyścić inputa
