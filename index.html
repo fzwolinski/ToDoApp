@@ -26,8 +26,8 @@
                         <!--
                         <li>
                             <div class="check-box">
-                                <input id="checkBox" type="checkbox">
-                                <label for="checkBox"></label>
+                                <input id="checkBox" class="checkBoxInput" type="checkbox">
+                                <label for="checkBox" class="labelForCheckBox"></label>
                             </div>
                             <div class="task-text">Zrobić Herbatę</div>
                             <div class="edit-delete-date-hour">
@@ -38,8 +38,29 @@
                         </li>
                         <li>
                             <div class="check-box">
-                                <input id="checkBox" type="checkbox">
+                                <input class="checkBoxInput" type="checkbox">
                                 <label for="checkBox"></label>
+                            </div>
+                            <div class="task-text">` + ta[i].content + `</div>
+                            <div class="edit-delete-date-hour">
+                                <span class="edit">Edit</span>
+                                <span class="delete">Delete</span>
+                                <span class="date-hour">` + ta[i].create_date + `</span>
+                            </div>
+                        </li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+            <div id="done" class="tasks-list">
+                <h2>DONE TASKS<h2>
+                <div class="tasks">
+                    <ul id="list-of-done-tasks">
+                        <!--
+                        <li>
+                            <div class="check-box">
+                                <input id="checkBox" type="checkbox">
+                                 <label for="checkBox" class="labelForCheckBox"></label>
                             </div>
                             <div class="task-text">Zrobić Herbatę</div>
                             <div class="edit-delete-date-hour">
@@ -50,23 +71,6 @@
                         </li>
                         -->
                     </ul>
-                </div>
-            </div>
-            <div id="done" class="tasks-list">
-                <h2>DONE TASKS<h2>
-                <div class="tasks">
-                    <li>
-                        <div class="check-box">
-                            <input id="checkBox" type="checkbox">
-                            <label for="checkBox"></label>
-                        </div>
-                        <div class="task-text">Zrobić Herbatę</div>
-                        <div class="edit-delete-date-hour">
-                            <span class="edit">Edit</span>
-                            <span class="delete">Delete</span>
-                            <span class="date-hour">2018-05-07 7:47 PM</span>
-                        </div>
-                    </li>
                 </div>
             </div>
         </div>
