@@ -111,11 +111,11 @@ if (typeof(Storage) !== "undefined") {
     };
     listTasksFromLocalStorage(tasks);
 
-    $(document).on('click', '.check-box label', function(){
+    $(document).on('click', '.check-box label', function() {
         makeTaskDone(this);
     });
 
-    var makeTaskDone = function(t) {
+    var makeTaskDone = (t) => {
         var doneTaskContent = t.parentNode.parentNode.getElementsByClassName('task-text')[0].innerHTML;
         var obj = tasks.find(o => o.content === doneTaskContent);
         obj.checked = true;
@@ -137,7 +137,7 @@ if (typeof(Storage) !== "undefined") {
         listTasksFromLocalStorage(tasks);
     };
 
-    $(document).on('click', '.delete', function(){
+    $(document).on('click', '.delete', function() {
         deleteTask(this);
     });
 
@@ -150,7 +150,7 @@ if (typeof(Storage) !== "undefined") {
         listTasksFromLocalStorage(tasks);
     };
 
-    $(document).on('click', '.edit', function(){
+    $(document).on('click', '.edit', function() {
         editTask(this);
     });
 

@@ -116,11 +116,14 @@ li:last-child {
     user-select: none;
 }
 
+
+.moveToToDo:hover,
 .edit:hover,
 .delete:hover {
     cursor: pointer;
 }
 
+.moveToToDo::after,
 .edit::after {
     content: '';
     margin-right: 3px;
