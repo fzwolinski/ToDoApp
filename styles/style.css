@@ -1,8 +1,8 @@
 body {
-    background-color: #121920;
-    color: #e4cfcf;
+    color: ;
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 #container {
@@ -10,26 +10,37 @@ body {
     height: 100%;
 }
 
+h1 {
+    margin: 30px 0;
+    font-size: 75px;
+    color: #fff;
+    text-shadow: 5px 0px 1px rgba(198, 167, 39, 1);
+}
+
 header, footer {
     text-align: center;
 }
 
 #lists {
-    border: 1px solid white;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
+#todo > header,
+#done > header {
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: 400;
+    color: #0b0e16;
+}
+
 .tasks-list {
-    border: 1px solid yellow;
+    border:20px ridge #e6c335;
     min-height: 600px;
     width: 500px;
 }
 
-h2 {
-    text-align: center;
-}
 
 .tasks {
     width: 100%;
@@ -43,16 +54,18 @@ ul {
 }
 
 li {
+    font-size: 25px;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
     padding: 6px 10px;
-    border: 1px solid black;
-    border-bottom: 0px;
+    border-bottom: 1px solid #e7c41c;
+    background: #3f4c6b;
+    color: #fff;
 }
 
 li:last-child {
-    border-bottom: 1px solid black;
+    border-bottom: 0px;
 }
 
 .check-box {
@@ -69,11 +82,11 @@ li:last-child {
     top: 50%;
     left: 50%;
     transform:  translate(-50%, -50%);
-    background: #eee;
+    background: #e7c41c;
 }
 
 .check-box label:after {
-    opacity: 0.2;
+    opacity: 0.3;
     content: '';
     position: absolute;
     width: 9px;
@@ -81,7 +94,7 @@ li:last-child {
     background: transparent;
     top: 5px;
     left: 5px;
-    border: 3px solid #333;
+    border: 3px solid #514405;
     border-top: none;
     border-right: none;
     transform: rotate(-45deg);
@@ -99,10 +112,20 @@ li:last-child {
     float: left;
     margin-left: 10px;
     max-width: 450px;
-    font-size: 25px;
+    padding-top: 4px;
     height: 20px;
-    margin-top: -6px;
+    line-height: 20px;
+    font-weight: 400;
 }
+
+#list-of-done-tasks {
+    margin-top: 50px;
+}
+
+#list-of-done-tasks > li > .task-text {
+    margin-left: 0px;
+}
+
 
 .edit-delete-date-hour {
     clear: both;
@@ -130,7 +153,8 @@ li:last-child {
 }
 
 .delete::after {
-    content: "\00a0\00a0|";
+    content: "\00a0\00a0\007C";
+    color: #74f90e;
 }
 
 .date-hour {
@@ -138,7 +162,7 @@ li:last-child {
 }
 
 #list-of-done-tasks > li > .edit-delete-date-hour > .date-hour-completion::before {
-    content: "\00a0-->\00a0\00a0";
+    content: "\00a0\2192\00a0\00a0";
 }
 
 .date-hour::before {
@@ -152,24 +176,29 @@ li:last-child {
     margin-top: 50px;
     margin-bottom: 40px;
     display: flex;
-    border: 1px dotted #123456;
+}
+
+input {
+    border: none;
 }
 
 input[type="text"], textarea {
     width: 430px;
-    background: #121920;
-    border: 1px solid #293847;
-    color: #e4cfcf;
+    background: #e7c41c;
+    color: #171c2b;
     box-sizing: border-box;
     padding: 1px 10px;
     font-size: 20px;
+    border: 2px dashed #e7c41c;
+    border-right: 3px solid #bc9f14;
 }
 
 input[type="text"]:focus,
 textarea:focus {
-    color: #f5e6e6;
+    
+    color: #0b0e16;
+    border: 2px dashed #a38a11;
     outline: none!important;
-    border: 1px solid #506c86;
 }
 
 #add-task-input,
@@ -180,10 +209,10 @@ textarea:focus {
 #add-task-text{
     text-align: center;
     font-size: 22px;
+    font-weight: 400;
     width: 70px;
-    border: 1px solid #293847;
     box-sizing: border-box;
-    height: 33px;
+    height: 35px;
     line-height: 33px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -191,15 +220,15 @@ textarea:focus {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    background: #e7c41c;
+    color: #0b0e16;
 }
 
 
 #add-task-text:hover {
     cursor: pointer;
-    background: #222e3a;
+    background: #d8b21a;
 }
-
-
 
 
 footer {

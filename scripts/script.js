@@ -11,7 +11,7 @@ if (typeof(Storage) !== "undefined") {
     input.addEventListener('focus', () => {
         input.addEventListener('keydown', (key) => {
             if(key.keyCode === 13) {
-                addTask();
+                addTask();return;
             }
         });
     })

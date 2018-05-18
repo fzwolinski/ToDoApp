@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ToDo App</title>
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="styles/hack.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -15,11 +18,11 @@
         </header>
         <div id="lists">
             <div id="todo" class="tasks-list">
-                <h2>TASKS TO DO</h2>
+                <header>TASKS TO DO</header>
                 <div class="tasks">
                     <div id="add-task">
                         <input type="text" id="add-task-input">
-                        <div id="add-task-text">Add</div>
+                        <div id="add-task-text">ADD</div>
                         <div style="clear: both;"></div>
                     </div>
                     <ul id="list-of-todos">
@@ -68,20 +71,17 @@
                 </div>
             </div>
             <div id="done" class="tasks-list">
-                <h2>DONE TASKS</h2>
+                <header>DONE TASKS</header>
                 <div class="tasks">
                     <ul id="list-of-done-tasks">
                         <!--
-                        <li>
-                            <div class="check-box">
-                                <input id="checkBox" type="checkbox">
-                                 <label for="checkBox" class="labelForCheckBox"></label>
-                            </div>
-                            <div class="task-text">Zrobić Herbatę</div>
+                       <li>
+                            <div class="task-text">aaaaa</div>
                             <div class="edit-delete-date-hour">
-                                <span class="edit">Edit</span>
+                                <span class="moveToToDo">To Do</span>
                                 <span class="delete">Delete</span>
-                                <span class="date-hour">2018-05-07 7:47 PM</span>
+                                <span class="date-hour" title="The date and time the task was added">2018-08-18 20:38</span>
+                                <span class="date-hour date-hour-completion" title="The date and time when the task was completed">2018-08-18 20:51</span>
                             </div>
                         </li>
                         -->
