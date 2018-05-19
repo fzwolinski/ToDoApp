@@ -27,8 +27,8 @@ if (typeof(Storage) !== "undefined") {
 
             tasks.push(task);
             saveTaskToLocalStorage(tasks);
-
             listTasksFromLocalStorage(tasks);
+            document.querySelector('#add-task-input').value = '';
         }
     };
 

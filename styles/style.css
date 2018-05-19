@@ -48,12 +48,18 @@ header, footer {
     font-size: 30px;
     font-weight: 400;
     color: #0b0e16;
+    /* color: #fff */
 }
 
 .tasks-list {
     border:20px ridge #e6c335;
     min-height: 600px;
     width: 500px;
+    /*
+    background: #20002c;
+    background: -webkit-linear-gradient(to top, #cbb4d4, #20002c);
+    background: linear-gradient(to top, #cbb4d4, #20002c);
+*/
 }
 
 
@@ -266,4 +272,5 @@ footer {
     left: 0;
     right: 0;
     font-size: 15px;
+    color: #b1ea20;
 }
