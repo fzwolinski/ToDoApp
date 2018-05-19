@@ -27,7 +27,7 @@ if (typeof(Storage) !== "undefined") {
 
             tasks.push(task);
             saveTaskToLocalStorage(tasks);
-            listTasksFromLocalStorage(tasks);
+            listTasksFromLocalStorage(tasks, true);
             document.querySelector('#add-task-input').value = '';
         }
     };
@@ -72,13 +72,16 @@ if (typeof(Storage) !== "undefined") {
         localStorage.setItem("ToDoApp", JSON.stringify(task));
     };
 
-    var listTasksFromLocalStorage = (ta) => {
+    var listTasksFromLocalStorage = (ta, animate) => {
         document.getElementById('list-of-todos').innerHTML = "";
         document.getElementById('list-of-done-tasks').innerHTML = "";
             for (var i = 0; i < ta.length; i++) {
                 if(!ta[i].checked) {
                     var ul = document.querySelector('#list-of-todos');
                     var li = document.createElement('li');
+                    if(animate == true && i == ta.length-1) {
+                        li.classList.add('anim');
+                    }
                     var div_structure = `
                         <div class="check-box">
                             <input type="checkbox">
@@ -110,7 +113,7 @@ if (typeof(Storage) !== "undefined") {
                 }
             }        
     };
-    listTasksFromLocalStorage(tasks);
+    listTasksFromLocalStorage(tasks, false);
 
     $(document).on('click', '.check-box label', function() {
         makeTaskDone(this);
@@ -122,7 +125,7 @@ if (typeof(Storage) !== "undefined") {
         obj.checked = true;
         obj.completion_date = getDateAndTime();
         saveTaskToLocalStorage(tasks);
-        listTasksFromLocalStorage(tasks);
+        listTasksFromLocalStorage(tasks, false);
     };
 
     $(document).on('click', '.moveToToDo', function() {
@@ -135,7 +138,7 @@ if (typeof(Storage) !== "undefined") {
         var obj = tasks.find(o => o.content === taskContent);
         obj.checked = false;
         saveTaskToLocalStorage(tasks);
-        listTasksFromLocalStorage(tasks);
+        listTasksFromLocalStorage(tasks, false);
     };
 
     $(document).on('click', '.delete', function() {
@@ -144,11 +147,15 @@ if (typeof(Storage) !== "undefined") {
 
     var deleteTask = (t) => {
         var clickedElement = t.parentNode.parentNode;
-        var taskContent = clickedElement.getElementsByClassName('task-text')[0].innerHTML;
-        var obj = tasks.find(o => o.content === taskContent);
-        tasks.splice(tasks.indexOf(obj), 1);
-        saveTaskToLocalStorage(tasks);
-        listTasksFromLocalStorage(tasks);
+        clickedElement.classList.add('anim-hide');
+        
+        setTimeout(function() {
+            var taskContent = clickedElement.getElementsByClassName('task-text')[0].innerHTML;
+            var obj = tasks.find(o => o.content === taskContent);
+            tasks.splice(tasks.indexOf(obj), 1);
+            saveTaskToLocalStorage(tasks);
+            listTasksFromLocalStorage(tasks, false);
+        }, 400);
     };
 
     $(document).on('click', '.edit', function() {
@@ -168,7 +175,7 @@ if (typeof(Storage) !== "undefined") {
             var taskNewContent = clickedElement.getElementsByClassName('task-text')[0].innerHTML;
             obj.content = taskNewContent;
             saveTaskToLocalStorage(tasks);
-            listTasksFromLocalStorage(tasks);
+            listTasksFromLocalStorage(tasks, false);
         });
 
         taskElement.addEventListener('keydown', (key) => {
@@ -177,11 +184,10 @@ if (typeof(Storage) !== "undefined") {
                 var taskNewContent = clickedElement.getElementsByClassName('task-text')[0].innerHTML;
                 obj.content = taskNewContent;
                 saveTaskToLocalStorage(tasks);
-                listTasksFromLocalStorage(tasks);
+                listTasksFromLocalStorage(tasks, false);
             }
         });
     };
-    
 } else {
     // Sorry! No Web Storage support..
     confirm.log('Niestety LocalStorage nie działa na twoim komputerze');

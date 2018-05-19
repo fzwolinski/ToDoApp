@@ -274,3 +274,24 @@ footer {
     font-size: 15px;
     color: #b1ea20;
 }
+
+
+.anim {
+    animation-name: animation-show;
+    animation-duration: 1s;
+}
+
+@keyframes animation-show {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.anim-hide {
+    animation-name: animation-hide;
+    animation-duration: 0.5s;
+}
+
+@keyframes animation-hide {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
