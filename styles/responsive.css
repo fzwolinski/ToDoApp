@@ -1,0 +1,203 @@
+.tasks-list {
+    width: 450px;
+}
+
+@media (max-width: 1040px) {
+    .tasks-list {
+        width: 400px;
+    }
+    li {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 927px) {
+    .tasks-list
+    {
+        width: 70%;
+        min-height: 0px;
+    }
+
+    li {
+        font-size: 25px;
+    }
+
+    #todo {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 750px) {
+    h1 {
+        font-size: 70px;
+    }
+}
+
+@media (max-width: 720px) {
+    .tasks-list
+    {
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 65px;
+    }
+    
+    li {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 630px) {
+    .tasks-list
+    {
+        width: 85%;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+    
+    li {
+        font-size: 20px;
+    }
+
+    .task-text {
+        line-height: 18px;
+    }
+}
+
+@media (max-width: 550px) {
+    h1 {
+        font-size: 50px;
+    }
+    
+    input[type="text"], textarea {
+        width: 85%;
+    }
+
+    #add-task-text {
+        font-size: 20px;
+        width: 20%;
+    }
+
+    li {
+        font-size: 18px;
+    }
+
+    input[type="checkbox"] {
+        margin-left: 4px;
+        margin-top: 2px;
+    }
+
+    .check-box label {
+        width: 18px;
+        height: 18px;
+    }
+
+    .check-box label:after {
+        width: 8px;
+        height: 4px;
+        top: 5px;
+        left: 4px;
+    }
+
+    .task-text {
+        line-height: 17px;
+    }
+
+    .edit-delete-date-hour { 
+        font-size: 12.5px;
+    }
+}
+
+@media (max-width: 493px) {
+
+    .tasks-list {
+        border: 15px ridge #e6c335;
+    }
+
+    li {
+        font-size: 17px;
+    }
+
+    .task-text {
+        max-width: 88%;
+        line-height: 16px;
+    }
+}
+
+@media (max-width: 450px) {
+    h1 {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 420px) {
+    li {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 390px) { 
+    #list-of-done-tasks > li > .edit-delete-date-hour > .delete::after {
+        content: '';
+        clear: right;
+        display: block;
+    }
+
+    #list-of-done-tasks > li > .edit-delete-date-hour > .date-hour::before {
+        content: '';
+    }
+
+    #list-of-done-tasks > li > .edit-delete-date-hour > .date-hour-completion::before {
+        content: "\00a0\2192\00a0\00a0";
+    }
+}
+
+
+@media (max-width: 380px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    #add-task-text {
+        font-size: 18px;
+        line-height: 36px;
+    }
+}
+
+@media (max-width: 350px) {
+    .task-text {
+        max-width: 86%;
+        line-height: 15.5px;
+    }
+}
+
+@media (max-width: 320px) {
+    li{
+        font-size: 15px;
+    }
+
+    .edit-delete-date-hour {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 306px) {
+    .task-text {
+        max-width: 84%;
+    }
+    #add-task-text {
+        font-size: 17px;
+        line-height: 35px;
+    }
+}
+
+@media (max-width: 272px) {
+    .task-text {
+        max-width: 81%;
+    }
+   
+}
+

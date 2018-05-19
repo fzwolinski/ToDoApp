@@ -8,7 +8,8 @@
     <link rel="stylesheet" type="text/css" href="styles/normalize.css">
     <link rel="stylesheet" type="text/css" href="styles/hack.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles/style.css">  
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link type="text/css" media='(max-width: 1120px)' rel='stylesheet' href='styles/responsive.css' />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -21,7 +22,7 @@
                 <header>TASKS TO DO</header>
                 <div class="tasks">
                     <div id="add-task">
-                        <input type="text" id="add-task-input">
+                        <input type="text" id="add-task-input" maxlength="60">
                         <div id="add-task-text">ADD</div>
                         <div style="clear: both;"></div>
                     </div>
@@ -89,10 +90,10 @@
                 </div>
             </div>
         </div>
-        <footer>
-            &copy; Copyright 2018, Fabian Zwoliński
-        </footer>
     </div>
+    <footer>
+        &copy; Copyright 2018, Fabian Zwoliński
+    </footer>
     <script src="scripts/script.js"></script>
 </body>
 </html>
