@@ -15,8 +15,8 @@ html {
 body {
     font-family: 'Roboto', sans-serif;
     background: #005AA7; 
-    background: -webkit-linear-gradient(to bottom, #FFFDE4, #005AA7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #FFFDE4, #005AA7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to bottom, #FFFDE4, #005AA7);
+    background: linear-gradient(to bottom, #FFFDE4, #005AA7);
 }
 
 #container {
@@ -47,21 +47,17 @@ header, footer {
     margin-top: 20px;
     font-size: 30px;
     font-weight: 400;
-    color: #0b0e16;
-    /* color: #fff */
+    color: #fff;
 }
 
 .tasks-list {
     border:20px ridge #e6c335;
     min-height: 600px;
     width: 500px;
-    /*
     background: #20002c;
     background: -webkit-linear-gradient(to top, #cbb4d4, #20002c);
     background: linear-gradient(to top, #cbb4d4, #20002c);
-*/
 }
-
 
 .tasks {
     width: 100%;
@@ -80,7 +76,6 @@ li {
     margin-right: auto;
     border-radius: 4px;
     margin-bottom: 10px;
-
     height: 100%;
     box-sizing: border-box;
     padding: 6px 10px;
@@ -139,14 +134,8 @@ li:last-child {
     padding-top: 4px;
     min-height: 20px;
     line-height: 20px;
-    font-weight: 400;
-    
+    font-weight: 400; 
     word-wrap: break-word;
-    /*
-    overflow: hidden;
-    white-space: nowrap;  Don't forget this one 
-    text-overflow: ellipsis;*/
-
 }
 
 #list-of-done-tasks {
@@ -156,7 +145,6 @@ li:last-child {
 #list-of-done-tasks > li > .task-text {
     margin-left: 0px;
 }
-
 
 .edit-delete-date-hour {
     clear: both;
@@ -169,7 +157,6 @@ li:last-child {
     -ms-user-select: none;
     user-select: none;
 }
-
 
 .moveToToDo:hover,
 .edit:hover,
@@ -230,7 +217,6 @@ textarea {
 
 input[type="text"]:focus,
 textarea:focus {
-    
     color: #0b0e16;
     border: 2px dashed #a38a11;
     outline: none!important;
@@ -259,12 +245,10 @@ textarea:focus {
     color: #0b0e16;
 }
 
-
 #add-task-text:hover {
     cursor: pointer;
     background: #d8b21a;
 }
-
 
 footer {
     position: absolute;
@@ -274,7 +258,6 @@ footer {
     font-size: 15px;
     color: #b1ea20;
 }
-
 
 .anim {
     animation-name: animation-show;

@@ -6,6 +6,7 @@
     .tasks-list {
         width: 400px;
     }
+
     li {
         font-size: 22px;
     }
@@ -34,8 +35,7 @@
 }
 
 @media (max-width: 720px) {
-    .tasks-list
-    {
+    .tasks-list {
         width: 80%;
     }
 
@@ -49,8 +49,7 @@
 }
 
 @media (max-width: 630px) {
-    .tasks-list
-    {
+    .tasks-list {
         width: 85%;
     }
 
@@ -112,7 +111,6 @@
 }
 
 @media (max-width: 493px) {
-
     .tasks-list {
         border: 15px ridge #e6c335;
     }
@@ -188,6 +186,7 @@
     .task-text {
         max-width: 84%;
     }
+
     #add-task-text {
         font-size: 17px;
         line-height: 35px;
@@ -198,6 +197,5 @@
     .task-text {
         max-width: 81%;
     }
-   
 }
 
