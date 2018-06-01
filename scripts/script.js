@@ -21,7 +21,7 @@ $(function() {
 
         var addTask = () => {
             var taskContent = document.querySelector('#add-task-input').value;
-            taskContent = taskContent.replace(/^\s+|\s+$/g, '');
+            taskContent = taskContent.replace(/^\s+|\s+$/g, '').replace(/</g, "&lt;").replace(/>/g, "&gt;");
             taskContent = taskContent.trim();
             
             if(taskContent != 0 ){
